@@ -10,7 +10,7 @@
     <meta name="keywords"  content="HEMEI,AntoniaHE">
     <meta name="theme-color" content="#000000">
     
-    <title>关于flex的几个属性。 - AntoniaHE的博客 | AntoniaHE Blog</title>
+    <title>关于VUE - AntoniaHE的博客 | AntoniaHE Blog</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -22,7 +22,7 @@
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://localhost:4000/2017/04/11/index/">
+    <link rel="canonical" href="http://localhost:4000/2017/01/13/index/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,12 +171,12 @@
                     <div class="tags">
                         
                     </div>
-                    <h1>关于flex的几个属性。</h1>
+                    <h1>关于VUE</h1>
                     
                     
-                    <h2 class="subheading"></h2>
+                    <h2 class="subheading">初学</h2>
                     
-                    <span class="meta">Posted by hemei on April 11, 2017</span>
+                    <span class="meta">Posted by hemei on January 13, 2017</span>
                 </div>
             </div>
         </div>
@@ -194,172 +194,73 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-				<h3 id="盒子的6个属性">盒子的6个属性</h3>
-<ul>
-  <li>1.flex-direction: 主轴的方向。</li>
-</ul>
+				<p>注：Vue不支持IE8及更低版本浏览器，因为Object.defindeProperty 仅支持ES5.
+***</p>
+<ol>
+  <li>使用<code class="highlighter-rouge">key</code>控制元素的可重用</li>
+  <li><code class="highlighter-rouge">v-show</code> 不支持<code class="highlighter-rouge">&lt;template&gt;</code></li>
+  <li><code class="highlighter-rouge">v-if</code> 是真实的条件渲染，因为它会确保条件块在切换当中适当地小会和重建条件块内的事件监听和子组件。</li>
+  <li><code class="highlighter-rouge">v-if</code>也是惰性的,如果在初始渲染的条件为假，则什么也不做，在条件第一次变为真的时候才开始局部编译（编译会被缓存下来）</li>
+  <li><code class="highlighter-rouge">v-show</code>的元素一开始是被编译保留的。只是简单的css切换</li>
+  <li><code class="highlighter-rouge">v-for="(item, index) in items"</code> <code class="highlighter-rouge">index</code>表示当前(ˇˍˇ) 项的索引</li>
+  <li><code class="highlighter-rouge">v-for="(value, key, index) in object"</code>对象迭代，第二个参数为键名，第三个位索引</li>
+  <li><code class="highlighter-rouge"> v-for="n in 10"</code> 整数迭代。</li>
+  <li><code class="highlighter-rouge">key</code>理想值是每一项唯一的id，使用<code class="highlighter-rouge">v-bind</code>来绑定，建议尽可能使用<code class="highlighter-rouge">v-for</code>来提供<code class="highlighter-rouge">key</code>….</li>
+  <li>数组：<code class="highlighter-rouge">push(),pop(),shift(),unshift(),slice(),sort(),reverse()</code></li>
+  <li><code class="highlighter-rouge">Vue</code> 不能检测以下变动的数组:
+    <ul>
+      <li>利用索引直接设置一个项<code class="highlighter-rouge">vm.items[indexOfItem] = newValue</code> 
+解决方式：<code class="highlighter-rouge">Vue.set(example1.items, indexOfItem, newValue)</code>
+<code class="highlighter-rouge">example1.items.splice(indexOfItem, 1, newValue)</code></li>
+      <li>修改数组的长度<code class="highlighter-rouge">vm.items.length = newLength</code>
+解决方式：<code class="highlighter-rouge">example1.items.splice(newLength)</code></li>
+    </ul>
+  </li>
+  <li>事件修饰符：
+    <ul>
+      <li><code class="highlighter-rouge">.stop</code> :阻止事件冒泡，<code class="highlighter-rouge">v-on:click.stop="doThis"</code></li>
+      <li><code class="highlighter-rouge">.prevent</code>：不重复提交，<code class="highlighter-rouge">submit.prevent="onSubmit"</code></li>
+      <li><code class="highlighter-rouge">.capture</code></li>
+      <li><code class="highlighter-rouge">.self</code>: 只当事件在该元素本身（而不是子元素）触发时触发回调</li>
+      <li><code class="highlighter-rouge">.once</code></li>
+    </ul>
+  </li>
+  <li>按键修饰符，使用按键别名，可以通过全局<code class="highlighter-rouge">config.keyCodes</code>对象自定义按键修饰符别名，例如：<code class="highlighter-rouge">Vue.config.keyCodes.f1 = 112 </code></li>
+  <li>新增按键修饰符:<code class="highlighter-rouge">.ctrl</code> <code class="highlighter-rouge">.alt</code> <code class="highlighter-rouge">.shift</code> <code class="highlighter-rouge">.meta</code>,在按键按下时发生响应！</li>
+  <li>表单控件绑定：
+    <ul>
+      <li><code class="highlighter-rouge">.lazy</code> 在<code class="highlighter-rouge">change</code>事件中同步： <code class="highlighter-rouge">v-model.lazy="message"</code></li>
+      <li><code class="highlighter-rouge">.number</code> 将用户输入值转为number类型: <code class="highlighter-rouge">v-model.number="age"</code>,即使在<code class="highlighter-rouge">type="number"</code>时，html输入的值也是字符串类型</li>
+      <li><code class="highlighter-rouge">.trim</code> 自动过滤掉用户输入的首尾空格</li>
+    </ul>
+  </li>
+  <li>组件：<code class="highlighter-rouge"> Vue.component(tagName,options)</code>,建议命名<code class="highlighter-rouge">小写，并且包含一个短杠</code>
+    <ul>
+      <li>DOM 模板解析说明，固定子节点的DOM(如 ul 里面的li，table 的 tr…)的组件会被认为是无效内容，这时需要使用<code class="highlighter-rouge">is</code>属性：</li>
+    </ul>
+  </li>
+</ol>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box {
-  flex-direction: row | row-reverse | column | column-reverse;
-}
-row: 水平方向，起点在左端。默认
-row-reverse: 水平方向，起点在右端。
-column: 垂直方向，起点在顶部。
-column-reverse: 垂直方向，起点在底部。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;table&gt;
+    &lt;tr is="my-row"&gt;&lt;/tr&gt;
+&lt;/table&gt;
 </code></pre></div></div>
-
-<ul>
-  <li>2.flex-wrap: 换行。</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box{
-  flex-wrap: nowrap | wrap | wrap-reverse;
-}
-nowrap: 不换行。默认
-wrap: 换行，第一行在上面。
-wrap-reverse: 换行，第一行在下面。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如果使用来自以下来源的字符串模板，就不受到以上限制： ``` 1. `&lt;script type="text/x-template"&gt;`  2. javascript 内联模板字符串 3. `.vue`组件 ``` - `data` 必须是函数 - 组件构成，子父组件的关系：`props down` `events up`,父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。 - 动态Prop 使用`v-bind`动态绑定`props`的值到父组件的数据中，父组件值发生变化时，该变化也会传导给子组件。 - 单向数据流！`注意在 JavaScript 中对象和数组是引用类型，指向同一个内存空间，如果 prop 是一个对象或数组，在子组件内部改变它会影响父组件的状态。` - 自定义事件：`$on(eventName)`监听事件，`$emit(eventName)`触发事件 - `slot` 使用`name`属性来分发内容。 - `keep-aoive`,把切换出去的组件保留在内存中，保留它的状态或避免重新渲染。 ``` Vue.component('async-example', function (resolve, reject) {   setTimeout(function () {
+// Pass the component definition to the resolve callback
+resolve({
+  template: '&lt;div&gt;I am async!&lt;/div&gt;'
+})   }, 1000) }) ``` resolve 是回调,`reject(reason)`只是加载失败。 - 递归调用组件。只有当它有name选项的时候才能自己调用自己。 - 使用`v-once` ，将渲染的静态组件缓存起来。 - 声明响应式，由于 `Vue` 不允许动态添加根级响应式属性，所以你必须在初始化实例前声明根级响应式属性，哪怕只是一个空值，也就是在data中声明。
 </code></pre></div></div>
-<ul>
-  <li>
-    <ol>
-      <li>flex-flow: 是1.2的简写。默认值：row nowrap</li>
-    </ol>
-  </li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box {
-  flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
-}
-</code></pre></div></div>
-<ul>
-  <li>
-    <ol>
-      <li>justify-content: 在主轴上的对齐方式。</li>
-    </ol>
-  </li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box {
-  justify-content: flex-start | flex-end | center | space-between | space-around;
-}
-flex-start: 左对齐 默认
-flex-end: 右对齐
-center: 居中
-space-between: 两端对齐，项目之间的间隔都相等。
-space-around: 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
-</code></pre></div></div>
-<ul>
-  <li>
-    <ol>
-      <li>align-item: 交叉轴上如何对齐。</li>
-    </ol>
-  </li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box {
-
-  align-items: flex-start | flex-end | center | baseline | stretch;
-}
-flex-start: 交叉轴起点对齐。
-flex-end: 交叉轴终点对齐。
-center: 交叉轴中点对齐。
-baseline: item的第一行文字基线对齐。
-stretch: 如果项目未设置高度或设为auto，将占满整个容器的高度。默认
-</code></pre></div></div>
-<ul>
-  <li>
-    <ol>
-      <li>align-content: 多根轴线的对齐方式。
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box {
-align-content: flex-start | flex-end | center | space-between | space-around | stretch;
-}
-flex-start：与交叉轴的起点对齐。
-flex-end: 与交叉轴终点对齐。
-center: 与交叉轴的中点对齐。
-space-between: 与交叉轴两端对齐，项目之间的间隔都相等。
-space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
-stretch：轴线占满整个交叉轴。默认
-</code></pre></div>        </div>
-      </li>
-    </ol>
-  </li>
-</ul>
-
-<h3 id="项目的6个属性">项目的6个属性</h3>
-
-<ul>
-  <li>
-    <ol>
-      <li>order: 定义项目的排列顺序。数值越小，排列越靠前，默认为0。</li>
-    </ol>
-  </li>
-</ul>
-
-<p>.item {
-  order: <integer>;
-}</integer></p>
-<ul>
-  <li>2.flex-grew: 定义项目的放大比例，默认为0。即如果存在剩余空间，也不放大。
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.item {
-flex-grow: &lt;number&gt;; /* default 0 */
-}
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <ol>
-      <li>flex-shrink: 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.item {
-flex-shrink: &lt;number&gt;; /* default 1 */
-}
- // 如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。
-</code></pre></div>        </div>
-      </li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li>flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间（main size）.
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.item {
-flex-basis: &lt;length&gt; | auto; /* default auto */
-}
-</code></pre></div>        </div>
-      </li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li>flex: 是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.item {
-flex: none | [ &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt;? || &lt;'flex-basis'&gt; ]
-}
-</code></pre></div>        </div>
-      </li>
-    </ol>
-  </li>
-  <li>6.align-self: 允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.item {
-align-self: auto | flex-start | flex-end | center | baseline | stretch;
-}
-</code></pre></div>    </div>
-  </li>
-</ul>
 
 
                 <hr style="visibility: hidden;">
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/01/13/index/" data-toggle="tooltip" data-placement="top" title="关于VUE">
-                        Previous<br>
-                        <span>关于VUE</span>
-                        </a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/11/20/index/" data-toggle="tooltip" data-placement="top" title="关于ES6">
+                        <a href="/2017/04/11/index/" data-toggle="tooltip" data-placement="top" title="关于flex的几个属性。">
                         Next<br>
-                        <span>关于ES6</span>
+                        <span>关于flex的几个属性。</span>
                         </a>
                     </li>
                     

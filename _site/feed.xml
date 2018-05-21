@@ -5,8 +5,8 @@
     <description>Every failure is leading towards success.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 21 May 2018 23:27:37 +0800</pubDate>
-    <lastBuildDate>Mon, 21 May 2018 23:27:37 +0800</lastBuildDate>
+    <pubDate>Mon, 21 May 2018 23:33:48 +0800</pubDate>
+    <lastBuildDate>Mon, 21 May 2018 23:33:48 +0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
@@ -742,9 +742,9 @@ var p = new Proxy(target, handler)
 p()//I’m the proxy
 ```&lt;/p&gt;
 </description>
-        <pubDate>Sun, 11 Jun 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/06/11/index/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/06/11/index/</guid>
+        <pubDate>Mon, 20 Nov 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/11/20/index/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/11/20/index/</guid>
         
         
       </item>
@@ -904,6 +904,73 @@ align-self: auto | flex-start | flex-end | center | baseline | stretch;
         <pubDate>Tue, 11 Apr 2017 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2017/04/11/index/</link>
         <guid isPermaLink="true">http://localhost:4000/2017/04/11/index/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>关于VUE</title>
+        <description>&lt;p&gt;注：Vue不支持IE8及更低版本浏览器，因为Object.defindeProperty 仅支持ES5.
+***&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;使用&lt;code class=&quot;highlighter-rouge&quot;&gt;key&lt;/code&gt;控制元素的可重用&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;v-show&lt;/code&gt; 不支持&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;template&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;v-if&lt;/code&gt; 是真实的条件渲染，因为它会确保条件块在切换当中适当地小会和重建条件块内的事件监听和子组件。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;v-if&lt;/code&gt;也是惰性的,如果在初始渲染的条件为假，则什么也不做，在条件第一次变为真的时候才开始局部编译（编译会被缓存下来）&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;v-show&lt;/code&gt;的元素一开始是被编译保留的。只是简单的css切换&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;v-for=&quot;(item, index) in items&quot;&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;index&lt;/code&gt;表示当前(ˇˍˇ) 项的索引&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;v-for=&quot;(value, key, index) in object&quot;&lt;/code&gt;对象迭代，第二个参数为键名，第三个位索引&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; v-for=&quot;n in 10&quot;&lt;/code&gt; 整数迭代。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;key&lt;/code&gt;理想值是每一项唯一的id，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;v-bind&lt;/code&gt;来绑定，建议尽可能使用&lt;code class=&quot;highlighter-rouge&quot;&gt;v-for&lt;/code&gt;来提供&lt;code class=&quot;highlighter-rouge&quot;&gt;key&lt;/code&gt;….&lt;/li&gt;
+  &lt;li&gt;数组：&lt;code class=&quot;highlighter-rouge&quot;&gt;push(),pop(),shift(),unshift(),slice(),sort(),reverse()&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Vue&lt;/code&gt; 不能检测以下变动的数组:
+    &lt;ul&gt;
+      &lt;li&gt;利用索引直接设置一个项&lt;code class=&quot;highlighter-rouge&quot;&gt;vm.items[indexOfItem] = newValue&lt;/code&gt; 
+解决方式：&lt;code class=&quot;highlighter-rouge&quot;&gt;Vue.set(example1.items, indexOfItem, newValue)&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;example1.items.splice(indexOfItem, 1, newValue)&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;修改数组的长度&lt;code class=&quot;highlighter-rouge&quot;&gt;vm.items.length = newLength&lt;/code&gt;
+解决方式：&lt;code class=&quot;highlighter-rouge&quot;&gt;example1.items.splice(newLength)&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;事件修饰符：
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.stop&lt;/code&gt; :阻止事件冒泡，&lt;code class=&quot;highlighter-rouge&quot;&gt;v-on:click.stop=&quot;doThis&quot;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.prevent&lt;/code&gt;：不重复提交，&lt;code class=&quot;highlighter-rouge&quot;&gt;submit.prevent=&quot;onSubmit&quot;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.capture&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.self&lt;/code&gt;: 只当事件在该元素本身（而不是子元素）触发时触发回调&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.once&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;按键修饰符，使用按键别名，可以通过全局&lt;code class=&quot;highlighter-rouge&quot;&gt;config.keyCodes&lt;/code&gt;对象自定义按键修饰符别名，例如：&lt;code class=&quot;highlighter-rouge&quot;&gt;Vue.config.keyCodes.f1 = 112 &lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;新增按键修饰符:&lt;code class=&quot;highlighter-rouge&quot;&gt;.ctrl&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;.alt&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;.shift&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;.meta&lt;/code&gt;,在按键按下时发生响应！&lt;/li&gt;
+  &lt;li&gt;表单控件绑定：
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.lazy&lt;/code&gt; 在&lt;code class=&quot;highlighter-rouge&quot;&gt;change&lt;/code&gt;事件中同步： &lt;code class=&quot;highlighter-rouge&quot;&gt;v-model.lazy=&quot;message&quot;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.number&lt;/code&gt; 将用户输入值转为number类型: &lt;code class=&quot;highlighter-rouge&quot;&gt;v-model.number=&quot;age&quot;&lt;/code&gt;,即使在&lt;code class=&quot;highlighter-rouge&quot;&gt;type=&quot;number&quot;&lt;/code&gt;时，html输入的值也是字符串类型&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.trim&lt;/code&gt; 自动过滤掉用户输入的首尾空格&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;组件：&lt;code class=&quot;highlighter-rouge&quot;&gt; Vue.component(tagName,options)&lt;/code&gt;,建议命名&lt;code class=&quot;highlighter-rouge&quot;&gt;小写，并且包含一个短杠&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;DOM 模板解析说明，固定子节点的DOM(如 ul 里面的li，table 的 tr…)的组件会被认为是无效内容，这时需要使用&lt;code class=&quot;highlighter-rouge&quot;&gt;is&lt;/code&gt;属性：&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &amp;lt;table&amp;gt;
+    &amp;lt;tr is=&quot;my-row&quot;&amp;gt;&amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;如果使用来自以下来源的字符串模板，就不受到以上限制： ``` 1. `&amp;lt;script type=&quot;text/x-template&quot;&amp;gt;`  2. javascript 内联模板字符串 3. `.vue`组件 ``` - `data` 必须是函数 - 组件构成，子父组件的关系：`props down` `events up`,父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。 - 动态Prop 使用`v-bind`动态绑定`props`的值到父组件的数据中，父组件值发生变化时，该变化也会传导给子组件。 - 单向数据流！`注意在 JavaScript 中对象和数组是引用类型，指向同一个内存空间，如果 prop 是一个对象或数组，在子组件内部改变它会影响父组件的状态。` - 自定义事件：`$on(eventName)`监听事件，`$emit(eventName)`触发事件 - `slot` 使用`name`属性来分发内容。 - `keep-aoive`,把切换出去的组件保留在内存中，保留它的状态或避免重新渲染。 ``` Vue.component('async-example', function (resolve, reject) {   setTimeout(function () {
+// Pass the component definition to the resolve callback
+resolve({
+  template: '&amp;lt;div&amp;gt;I am async!&amp;lt;/div&amp;gt;'
+})   }, 1000) }) ``` resolve 是回调,`reject(reason)`只是加载失败。 - 递归调用组件。只有当它有name选项的时候才能自己调用自己。 - 使用`v-once` ，将渲染的静态组件缓存起来。 - 声明响应式，由于 `Vue` 不允许动态添加根级响应式属性，所以你必须在初始化实例前声明根级响应式属性，哪怕只是一个空值，也就是在data中声明。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Fri, 13 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/01/13/index/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/13/index/</guid>
         
         
       </item>
