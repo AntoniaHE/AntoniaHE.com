@@ -245,12 +245,36 @@
     &lt;tr is="my-row"&gt;&lt;/tr&gt;
 &lt;/table&gt;
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如果使用来自以下来源的字符串模板，就不受到以上限制： ``` 1. `&lt;script type="text/x-template"&gt;`  2. javascript 内联模板字符串 3. `.vue`组件 ``` - `data` 必须是函数 - 组件构成，子父组件的关系：`props down` `events up`,父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。 - 动态Prop 使用`v-bind`动态绑定`props`的值到父组件的数据中，父组件值发生变化时，该变化也会传导给子组件。 - 单向数据流！`注意在 JavaScript 中对象和数组是引用类型，指向同一个内存空间，如果 prop 是一个对象或数组，在子组件内部改变它会影响父组件的状态。` - 自定义事件：`$on(eventName)`监听事件，`$emit(eventName)`触发事件 - `slot` 使用`name`属性来分发内容。 - `keep-aoive`,把切换出去的组件保留在内存中，保留它的状态或避免重新渲染。 ``` Vue.component('async-example', function (resolve, reject) {   setTimeout(function () {
-// Pass the component definition to the resolve callback
-resolve({
-  template: '&lt;div&gt;I am async!&lt;/div&gt;'
-})   }, 1000) }) ``` resolve 是回调,`reject(reason)`只是加载失败。 - 递归调用组件。只有当它有name选项的时候才能自己调用自己。 - 使用`v-once` ，将渲染的静态组件缓存起来。 - 声明响应式，由于 `Vue` 不允许动态添加根级响应式属性，所以你必须在初始化实例前声明根级响应式属性，哪怕只是一个空值，也就是在data中声明。
+
+<p>如果使用来自以下来源的字符串模板，就不受到以上限制：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. `&lt;script type="text/x-template"&gt;` 
+2. javascript 内联模板字符串
+3. `.vue`组件
 </code></pre></div></div>
+<ul>
+  <li><code class="highlighter-rouge">data</code> 必须是函数</li>
+  <li>组件构成，子父组件的关系：<code class="highlighter-rouge">props down</code> <code class="highlighter-rouge">events up</code>,父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。</li>
+  <li>动态Prop 使用<code class="highlighter-rouge">v-bind</code>动态绑定<code class="highlighter-rouge">props</code>的值到父组件的数据中，父组件值发生变化时，该变化也会传导给子组件。</li>
+  <li>单向数据流！<code class="highlighter-rouge">注意在 JavaScript 中对象和数组是引用类型，指向同一个内存空间，如果 prop 是一个对象或数组，在子组件内部改变它会影响父组件的状态。</code></li>
+  <li>自定义事件：<code class="highlighter-rouge">$on(eventName)</code>监听事件，<code class="highlighter-rouge">$emit(eventName)</code>触发事件</li>
+  <li><code class="highlighter-rouge">slot</code> 使用<code class="highlighter-rouge">name</code>属性来分发内容。</li>
+  <li><code class="highlighter-rouge">keep-aoive</code>,把切换出去的组件保留在内存中，保留它的状态或避免重新渲染。
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vue.component('async-example', function (resolve, reject) {
+setTimeout(function () {
+  // Pass the component definition to the resolve callback
+  resolve({
+    template: '&lt;div&gt;I am async!&lt;/div&gt;'
+  })
+}, 1000)
+})
+</code></pre></div>    </div>
+    <p>resolve 是回调,<code class="highlighter-rouge">reject(reason)</code>只是加载失败。</p>
+  </li>
+  <li>递归调用组件。只有当它有name选项的时候才能自己调用自己。</li>
+  <li>使用<code class="highlighter-rouge">v-once</code> ，将渲染的静态组件缓存起来。</li>
+  <li>声明响应式，由于 <code class="highlighter-rouge">Vue</code> 不允许动态添加根级响应式属性，所以你必须在初始化实例前声明根级响应式属性，哪怕只是一个空值，也就是在data中声明。</li>
+</ul>
 
 
                 <hr style="visibility: hidden;">

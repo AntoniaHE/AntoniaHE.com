@@ -5,8 +5,8 @@
     <description>Every failure is leading towards success.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 21 May 2018 23:33:48 +0800</pubDate>
-    <lastBuildDate>Mon, 21 May 2018 23:33:48 +0800</lastBuildDate>
+    <pubDate>Mon, 21 May 2018 23:36:09 +0800</pubDate>
+    <lastBuildDate>Mon, 21 May 2018 23:36:09 +0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
@@ -961,12 +961,36 @@ align-self: auto | flex-start | flex-end | center | baseline | stretch;
     &amp;lt;tr is=&quot;my-row&quot;&amp;gt;&amp;lt;/tr&amp;gt;
 &amp;lt;/table&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;如果使用来自以下来源的字符串模板，就不受到以上限制： ``` 1. `&amp;lt;script type=&quot;text/x-template&quot;&amp;gt;`  2. javascript 内联模板字符串 3. `.vue`组件 ``` - `data` 必须是函数 - 组件构成，子父组件的关系：`props down` `events up`,父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。 - 动态Prop 使用`v-bind`动态绑定`props`的值到父组件的数据中，父组件值发生变化时，该变化也会传导给子组件。 - 单向数据流！`注意在 JavaScript 中对象和数组是引用类型，指向同一个内存空间，如果 prop 是一个对象或数组，在子组件内部改变它会影响父组件的状态。` - 自定义事件：`$on(eventName)`监听事件，`$emit(eventName)`触发事件 - `slot` 使用`name`属性来分发内容。 - `keep-aoive`,把切换出去的组件保留在内存中，保留它的状态或避免重新渲染。 ``` Vue.component('async-example', function (resolve, reject) {   setTimeout(function () {
-// Pass the component definition to the resolve callback
-resolve({
-  template: '&amp;lt;div&amp;gt;I am async!&amp;lt;/div&amp;gt;'
-})   }, 1000) }) ``` resolve 是回调,`reject(reason)`只是加载失败。 - 递归调用组件。只有当它有name选项的时候才能自己调用自己。 - 使用`v-once` ，将渲染的静态组件缓存起来。 - 声明响应式，由于 `Vue` 不允许动态添加根级响应式属性，所以你必须在初始化实例前声明根级响应式属性，哪怕只是一个空值，也就是在data中声明。
+
+&lt;p&gt;如果使用来自以下来源的字符串模板，就不受到以上限制：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. `&amp;lt;script type=&quot;text/x-template&quot;&amp;gt;` 
+2. javascript 内联模板字符串
+3. `.vue`组件
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;data&lt;/code&gt; 必须是函数&lt;/li&gt;
+  &lt;li&gt;组件构成，子父组件的关系：&lt;code class=&quot;highlighter-rouge&quot;&gt;props down&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;events up&lt;/code&gt;,父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。&lt;/li&gt;
+  &lt;li&gt;动态Prop 使用&lt;code class=&quot;highlighter-rouge&quot;&gt;v-bind&lt;/code&gt;动态绑定&lt;code class=&quot;highlighter-rouge&quot;&gt;props&lt;/code&gt;的值到父组件的数据中，父组件值发生变化时，该变化也会传导给子组件。&lt;/li&gt;
+  &lt;li&gt;单向数据流！&lt;code class=&quot;highlighter-rouge&quot;&gt;注意在 JavaScript 中对象和数组是引用类型，指向同一个内存空间，如果 prop 是一个对象或数组，在子组件内部改变它会影响父组件的状态。&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;自定义事件：&lt;code class=&quot;highlighter-rouge&quot;&gt;$on(eventName)&lt;/code&gt;监听事件，&lt;code class=&quot;highlighter-rouge&quot;&gt;$emit(eventName)&lt;/code&gt;触发事件&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;slot&lt;/code&gt; 使用&lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt;属性来分发内容。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;keep-aoive&lt;/code&gt;,把切换出去的组件保留在内存中，保留它的状态或避免重新渲染。
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Vue.component('async-example', function (resolve, reject) {
+setTimeout(function () {
+  // Pass the component definition to the resolve callback
+  resolve({
+    template: '&amp;lt;div&amp;gt;I am async!&amp;lt;/div&amp;gt;'
+  })
+}, 1000)
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;resolve 是回调,&lt;code class=&quot;highlighter-rouge&quot;&gt;reject(reason)&lt;/code&gt;只是加载失败。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;递归调用组件。只有当它有name选项的时候才能自己调用自己。&lt;/li&gt;
+  &lt;li&gt;使用&lt;code class=&quot;highlighter-rouge&quot;&gt;v-once&lt;/code&gt; ，将渲染的静态组件缓存起来。&lt;/li&gt;
+  &lt;li&gt;声明响应式，由于 &lt;code class=&quot;highlighter-rouge&quot;&gt;Vue&lt;/code&gt; 不允许动态添加根级响应式属性，所以你必须在初始化实例前声明根级响应式属性，哪怕只是一个空值，也就是在data中声明。&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Fri, 13 Jan 2017 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2017/01/13/index/</link>
