@@ -10,7 +10,7 @@
     <meta name="keywords"  content="HEMEI,AntoniaHE">
     <meta name="theme-color" content="#000000">
     
-    <title>Tags - AntoniaHE的博客 | AntoniaHE Blog</title>
+    <title>关于flex的几个属性。 - AntoniaHE的博客 | AntoniaHE Blog</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -22,7 +22,7 @@
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://localhost:4000/tags/">
+    <link rel="canonical" href="http://localhost:4000/2017/04/11/index/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -152,34 +152,299 @@
 </script>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-index.jpg')">
+    <!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-index.jpg');
+        
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading" id="tag-heading">
-                    <h1>Tags</h1>
-                    <span class="subheading">keep hungry keep foolish</span>
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>关于flex的几个属性。</h1>
+                    
+                    
+                    <h2 class="subheading"></h2>
+                    
+                    <span class="meta">Posted by hemei on April 11, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 标签云 -->
-			<div id='tag_cloud' class="tags">
-				
-			</div>
-            <!-- 标签列表 -->
-			
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-		</div>
-	</div>
-</div>
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h3 id="盒子的6个属性">盒子的6个属性</h3>
+<ul>
+  <li>1.flex-direction: 主轴的方向。</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box {
+  flex-direction: row | row-reverse | column | column-reverse;
+}
+row: 水平方向，起点在左端。默认
+row-reverse: 水平方向，起点在右端。
+column: 垂直方向，起点在顶部。
+column-reverse: 垂直方向，起点在底部。
+</code></pre></div></div>
+
+<ul>
+  <li>2.flex-wrap: 换行。</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box{
+  flex-wrap: nowrap | wrap | wrap-reverse;
+}
+nowrap: 不换行。默认
+wrap: 换行，第一行在上面。
+wrap-reverse: 换行，第一行在下面。
+</code></pre></div></div>
+<ul>
+  <li>
+    <ol>
+      <li>flex-flow: 是1.2的简写。默认值：row nowrap</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box {
+  flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
+}
+</code></pre></div></div>
+<ul>
+  <li>
+    <ol>
+      <li>justify-content: 在主轴上的对齐方式。</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box {
+  justify-content: flex-start | flex-end | center | space-between | space-around;
+}
+flex-start: 左对齐 默认
+flex-end: 右对齐
+center: 居中
+space-between: 两端对齐，项目之间的间隔都相等。
+space-around: 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+</code></pre></div></div>
+<ul>
+  <li>
+    <ol>
+      <li>align-item: 交叉轴上如何对齐。</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box {
+
+  align-items: flex-start | flex-end | center | baseline | stretch;
+}
+flex-start: 交叉轴起点对齐。
+flex-end: 交叉轴终点对齐。
+center: 交叉轴中点对齐。
+baseline: item的第一行文字基线对齐。
+stretch: 如果项目未设置高度或设为auto，将占满整个容器的高度。默认
+</code></pre></div></div>
+<ul>
+  <li>
+    <ol>
+      <li>align-content: 多根轴线的对齐方式。
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box {
+align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+}
+flex-start：与交叉轴的起点对齐。
+flex-end: 与交叉轴终点对齐。
+center: 与交叉轴的中点对齐。
+space-between: 与交叉轴两端对齐，项目之间的间隔都相等。
+space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+stretch：轴线占满整个交叉轴。默认
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="项目的6个属性">项目的6个属性</h3>
+
+<ul>
+  <li>
+    <ol>
+      <li>order: 定义项目的排列顺序。数值越小，排列越靠前，默认为0。</li>
+    </ol>
+  </li>
+</ul>
+
+<p>.item {
+  order: <integer>;
+}</integer></p>
+<ul>
+  <li>2.flex-grew: 定义项目的放大比例，默认为0。即如果存在剩余空间，也不放大。
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.item {
+flex-grow: &lt;number&gt;; /* default 0 */
+}
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <ol>
+      <li>flex-shrink: 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.item {
+flex-shrink: &lt;number&gt;; /* default 1 */
+}
+ // 如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间（main size）.
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.item {
+flex-basis: &lt;length&gt; | auto; /* default auto */
+}
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>flex: 是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.item {
+flex: none | [ &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt;? || &lt;'flex-basis'&gt; ]
+}
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>6.align-self: 允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.item {
+align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/11/20/index/" data-toggle="tooltip" data-placement="top" title="Hello Blog">
+                        Next<br>
+                        <span>Hello Blog</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+
+                
+
+                
+
+            </div>  
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
 
     <!-- Footer -->
@@ -334,6 +599,50 @@
 
 
 <!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 
