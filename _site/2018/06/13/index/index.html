@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Every failure is leading towards success.">
+    <meta name="keywords"  content="HEMEI,AntoniaHE">
+    <meta name="theme-color" content="#000000">
+    
+    <title>about Array - AntoniaHE的博客 | AntoniaHE Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!-- Safari Webpage Icon    by-BY -->
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/2018/06/13/index/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">AntoniaHE Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-index.jpg');
+        
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>about Array</h1>
+                    
+                    
+                    <h2 class="subheading">关于数组的方法，涉及到遍历和改变数组。</h2>
+                    
+                    <span class="meta">Posted by hemei on June 13, 2018</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h3 id="创建一个数组">创建一个数组</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let a = new Array() // []
+let a = [1,2,3]
+let a = Array(3) // [,,] 长度为3的数组
+let a = Array(3,4,5) // [3,4,5]
+</code></pre></div></div>
+<h5 id="arrayof-es6">Array.of() ES6</h5>
+<p>这个方法返回参数值组成的数组,没有参数，就返回一个空数组</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let a = Array.of(3,4,'sss',22) // [3, 4, "sss", 22]
+</code></pre></div></div>
+<p>Array.of() 出现的目的是为了解决上述构造器因参数个数不同，导致的行为有差异的问题。 在上面的创建栗子中，<code class="highlighter-rouge">Array(3)</code> 是一个长度为3的空数组，而<code class="highlighter-rouge">Array(3,4,5)</code> 返回的是<code class="highlighter-rouge">[3,4,5]</code></p>
+<h5 id="arraryfrom-es6">Arrary.from() ES6</h5>
+<p>用于将两类对象转化为真正的数组，不改变原对象，返回新的数组。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Array.from('hello') // ['h','e','l','l','o']
+let a1 = [...new Set(Array.from('hello'))] // ['h','e','l','o']
+</code></pre></div></div>
+<h3 id="方法">方法</h3>
+<h4 id="改变原数组的9个方法">改变原数组的9个方法</h4>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ES5</span><span class="p">:</span>
+ <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+ <span class="nx">a</span><span class="p">.</span><span class="nx">splice</span><span class="p">()</span><span class="o">/</span><span class="nx">a</span><span class="p">.</span><span class="nx">sort</span><span class="p">()</span> <span class="o">/</span> <span class="nx">a</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span><span class="o">/</span> <span class="nx">a</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span><span class="o">/</span>  <span class="nx">a</span><span class="p">.</span><span class="nx">push</span><span class="p">()</span><span class="o">/</span> <span class="nx">a</span><span class="p">.</span><span class="nx">unshift</span><span class="p">()</span><span class="o">/</span> <span class="nx">a</span><span class="p">.</span><span class="nx">reverse</span><span class="p">()</span>
+<span class="nx">ES6</span><span class="p">:</span>
+ <span class="nx">a</span><span class="p">.</span><span class="nx">copyWithin</span><span class="p">()</span> <span class="o">/</span> <span class="nx">a</span><span class="p">.</span><span class="nx">fill</span>
+</code></pre></div></div>
+<h6 id="splice-添加删除数组元素">splice() 添加/删除数组元素</h6>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 添加
+array.splice(index,howmany,item1,.....,itemX)
+// index: 必需,规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。
+// howmany: 要删除的个数，0表示不删除，返回原数组
+// item1, ..., itemX： 可选。向数组添加的新项目。
+let a = [1, 2, 3, 4, 5, 6, 7];
+let item = a.splice(0, 3); // [1,2,3]
+console.log(a); // [4,5,6,7]
+// 从数组下标0开始，删除3个元素
+let item = a.splice(-1, 3); // [7]
+// 从最后一个元素开始删除3个元素，因为最后一个元素，所以只删除了7
+
+// 删除
+let item = b.splice(-1,0,'添加1','添加2'); // item []没有删除元素，返回空数组
+console.log(b); // [1,2,3,4,5,6,'添加1','添加2',7]在最后一个元素的前面添加两个元素
+</code></pre></div></div>
+<ul>
+  <li>数组如果元素不够，会删除到最后一个元素为止</li>
+  <li>操作的元素，包括开始的那个元素</li>
+  <li>可以添加很多个元素</li>
+  <li>添加是在开始的元素前面添加的</li>
+</ul>
+
+<h5 id="sort-排序">sort() 排序</h5>
+<ul>
+  <li>数字类型的数组排序</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 返回升序数组
+let array =  [10, 1, 3, 4,20,4,25,8]
+array.sort(function(a,b){
+    return a - b
+})
+// [1, 3, 4, 4, 8, 10, 20, 25]
+
+// 降序
+array.sort(function(a,b){
+    return b - a
+})
+// [25, 20, 10, 8, 4, 4, 3, 1]
+</code></pre></div></div>
+<ul>
+  <li>数组多条件排序
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// array是一个对象数组，按一下方式进行排序
+array.sort(function(a,b){
+  if(a.id === b.id){// 如果id的值相等，按照age的值降序
+       return b.age - a.age
+  }else{ // 如果id的值不相等，按照id的值升序
+      return a.id - b.id
+  }
+})
+</code></pre></div>    </div>
+    <h5 id="pop-删除一个数组中的最后的一个元素">pop() 删除一个数组中的最后的一个元素</h5>
+    <p>pop() 方法删除一个数组中的最后的一个元素，并且返回这个元素。</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let arr = [1,2,4,5,6,8]
+let item = arr.pop() // item 8
+arr // [1,2,4,5,6]
+</code></pre></div>    </div>
+    <h5 id="shift-删除数组的第一个元素">shift() 删除数组的第一个元素</h5>
+    <p>shift()方法删除数组的第一个元素，并返回这个元素。</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let arr = [1,2,4,5,6,8]
+let item = arr.shift() // item 1
+arr // [2,4,5,6,8]
+</code></pre></div>    </div>
+    <h5 id="push-向数组的末尾添加元素并返回新的长度">push() 向数组的末尾添加元素，并返回新的长度</h5>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let list = [2,4,5]
+list.push('2222')
+// list [2,4,5,'2222']
+</code></pre></div>    </div>
+    <h5 id="unshift-在数组的开头添加一个或多个元素并返回新的长度">unshift() 在数组的开头添加一个或多个元素，并返回新的长度</h5>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let list = [2,3,4,5]
+let len = list.unshift('2222') // 5
+// list ['2222',2,3,4,5]
+</code></pre></div>    </div>
+    <h5 id="reverse-颠倒数组中元素的顺序">reverse() 颠倒数组中元素的顺序.</h5>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var listA = [2,4,6,9,2,3,7]
+listA.sort((a,b) =&gt;{
+  return a - b
+})
+// listA [2, 2, 3, 4, 6, 7, 9]
+listA.reverse() // [9, 7, 6, 4, 3, 2, 2]
+</code></pre></div>    </div>
+    <h5 id="copywithin-指定位置的成员复制到其他位置-es6">copyWithin() 指定位置的成员复制到其他位置 ES6</h5>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array.copyWithin(target, start = 0, end = this.length)
+// target（必需）：从该位置开始替换数据。如果为负值，表示倒数。
+// start（可选）：从该位置开始读取数据，默认为 0。如果为负值，表示倒数。
+// end（可选）：到该位置前停止读取数据，默认等于数组长度。使用负数可从数组结尾处规定位置。
+
+var listA = [2,4,6,9,2,3,7]
+listA.copyWithin(1, -3, -2) // [2,2,6,9,2,3,7]
+// 注意：读了几个元素就从开始被替换的地方替换几个元素
+</code></pre></div></div>
+
+<h5 id="fill-填充数组-es6">fill() 填充数组 ES6</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var l = [2,4,5,8,9,10]
+l.fill(7,3,5) 
+// 要填充的数值是7，从第三个位置开始，到第五个位置前结束
+// [2,3,5,7,7,10]
+</code></pre></div></div>
+
+<h4 id="不改变原数组的方法8个">不改变原数组的方法(8个)</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// ES5：
+slice、join、toLocateString、toStrigin、cancat、indexOf、lastIndexOf
+// ES7：
+includes
+</code></pre></div></div>
+
+<h5 id="slice-浅拷贝数组的元素">slice() 浅拷贝数组的元素</h5>
+<p>方法返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象，且原数组不会被修改。</p>
+
+<p>新数组是浅拷贝的，元素是简单数据类型，改变之后不会互相干扰。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var l = [2,4,5,6,8,2,4]
+var l2 = l.slice(0, 4) // [2,4,5,6]
+</code></pre></div></div>
+
+<p>如果是复杂数据类型(对象,数组)的话，改变其中一个，另外一个也会改变。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let a = [{name:'hemei'}]
+let b = a.slice()
+console.log(b,a)
+a[0].name = 'hello'
+b // [{name: 'hello'}]
+</code></pre></div></div>
+
+<h5 id="join-数组转字符串">join() 数组转字符串</h5>
+<p>默认使用逗号作为分隔符</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let a = ['hello','world'];
+let str = a.join(); // 'hello,world'
+let str2 = a.join('+'); // 'hello+world'
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">join()/toString()</code>方法在数组元素是数组的时候，会将里面的数组也调用<code class="highlighter-rouge">join()/toString()</code>,如果是对象的话，对象会被转为<code class="highlighter-rouge">[object Object]</code>字符串。</p>
+
+<h5 id="tolocalestring-数组转字符串">toLocaleString() 数组转字符串</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let a=[{name:'OBKoro1'},23,'abcd',new Date()];
+let str=a.toLocaleString(); // [object Object],23,abcd,2018/5/28 下午1:52:20
+</code></pre></div></div>
+
+<p>调用数组的<code class="highlighter-rouge">toLocaleString</code>方法，数组中的每个元素都会调用自身的<code class="highlighter-rouge">toLocaleString</code>方法，对象调用对象的<code class="highlighter-rouge">toLocaleString</code>,<code class="highlighter-rouge">Date</code>调用<code class="highlighter-rouge">Date</code>的<code class="highlighter-rouge">toLocaleString</code>。</p>
+<h5 id="tostring-数组转字符串-不推荐使用">toString() 数组转字符串 不推荐使用</h5>
+<p>跟join方法一样，join可以定义分隔符，toString没有。</p>
+
+<p>当数组和字符串操作的时候，js 会自己调用这个方法将数组自动转换成字符串。</p>
+
+<h5 id="cancat--用于将两个或多个数组进行合并操作返回一个新数组">cancat  用于将两个或多个数组进行合并操作，返回一个新数组。</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var newArr = oldArray.concat(arrayX,arrayX,......,arrayX)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var old1 = [{name: '222',age: 12}]
+var old2 = [{name2: '2xxxx22',age2: 122}]
+var new1 = old1.concat(old2) // [{name: '222',age: 12}, {name2: '2xxxx22',age2: 122}]
+old1[0].name = 'hemei'
+new1 // [{name: 'hemei',age: 12}, {name2: '2xxxx22',age2: 122}]
+// 复杂类型进行合并，属于浅拷贝
+</code></pre></div></div>
+
+<h5 id="es6扩展运算符合并数组">ES6扩展运算符…合并数组</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let a = [2, 3, 4, 5]
+let b = [ 4,...a, 4, 4]
+console.log(b); //  [4,2,3,4,5,4,4]
+</code></pre></div></div>
+
+<h5 id="indexof-查找数组是否存在某个元素返回下标">indexOf() 查找数组是否存在某个元素，返回下标.</h5>
+<p>返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array.indexOf(searchElement,fromIndex)
+// 被查找的元素, 开始查找的位置(不能大于等于数组的长度，返回-1)，接受负值，默认值为0。
+
+// indexOf()不能识别NaN
+// 数组的indexOf使用严格相等===搜索元素
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var arr = ['hemei','dddd','ssss']
+arr.indexOf('h') // -1
+arr.indexOf('hemei') // 0
+arr.indexOf('dddd') // 1
+</code></pre></div></div>
+
+<p>使用场景</p>
+<ul>
+  <li>数组去重</li>
+  <li>根据获取的数组下标执行操作，改变数组中的值等。</li>
+  <li>判断是否存在，执行操作。</li>
+</ul>
+
+<h5 id="lastindexof-查找指定元素在数组中的最后一个位置">lastIndexOf() 查找指定元素在数组中的最后一个位置</h5>
+<p>方法返回指定元素,在数组中的最后一个的索引，如果不存在则返回 -1。（从数组后面往前查找）</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arr.lastIndexOf(searchElement,fromIndex)
+// 被查找的元素. 逆向查找开始位置，默认值数组的长度-1，即查找整个数组。
+// fromIndex: 
+// 正值。如果该值大于或等于数组的长度，则整个数组会被查找
+// 负值。将其视为从数组末尾向前的偏移。(比如-2，从数组最后第二个元素开始往前查找)
+// 负值。其绝对值大于数组长度，则方法返回 -1，即数组不会被查找。
+</code></pre></div></div>
+
+<h5 id="includes-查找数组是否包含某个元素-返回布尔-es7">includes() 查找数组是否包含某个元素 返回布尔 ES7</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array.includes(searchElement,fromIndex=0)
+// searchElement: 被查找的元素,
+// fromIndex(可选):默认值为0，参数表示搜索的起始位置，接受负值。正值超过数组长度，数组不会被搜索，返回false。负值绝对值超过长数组度，重置从0开始搜索。
+</code></pre></div></div>
+
+<p>includes方法是为了弥补indexOf方法的缺陷而出现的:</p>
+<ul>
+  <li>indexOf方法不能识别NaN</li>
+  <li>indexOf方法检查是否包含某个值不够语义化，需要判断是否不等于-1，表达不够直观</li>
+</ul>
+
+<h4 id="遍历方法12个">遍历方法(12个)</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ES5：
+forEach、every 、some、 filter、map、reduce、reduceRight、
+ES6：
+find、findIndex、keys、values、entries
+</code></pre></div></div>
+
+<h5 id="foreach">forEach</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array.forEach(function(currentValue, index, arr), thisValue)
+1. currentValue(必须),数组当前元素的值
+2. index(可选), 当前元素的索引值
+3. arr(可选),数组对象本身
+4. thisValue(可选): 当执行回调函数时this绑定对象的值，默认值为undefined
+</code></pre></div></div>
+
+<p>关于forEach，无法中途退出循环，只能用return退出本次回调，进行下一次回调。它总是返回 undefined值,即使你return了一个值。</p>
+
+<h5 id="every-检测数组所有元素是否都符合判断条件">every 检测数组所有元素是否都符合判断条件</h5>
+<p>语法同上</p>
+
+<p>返回值规则：</p>
+<ul>
+  <li>如果数组中检测到有一个元素不满足，则整个表达式返回 false，且剩余的元素不会再进行检测。</li>
+  <li>如果所有元素都满足条件，则返回 true。</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var arrays = [2,3,4,5,6,7,8,9]
+arrays.every(item =&gt; item &gt; 1) // true
+arrays.every(item =&gt; item &gt; 2) // false
+</code></pre></div></div>
+
+<h5 id="some-数组中是否有满足判断条件的元素">some 数组中是否有满足判断条件的元素</h5>
+<p>语法同上</p>
+
+<p>返回值规则:</p>
+<ul>
+  <li>如果有一个元素满足条件，则表达式返回true, 剩余的元素不会再执行检测.</li>
+  <li>如果没有满足条件的元素，则返回false。</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arrays.some(item =&gt; item &gt; 2) // true
+arrays.some(item =&gt; item &gt; 10) // false
+</code></pre></div></div>
+
+<h5 id="filter-过滤原始数组返回新数组">filter 过滤原始数组，返回新数组</h5>
+<p>返回一个新数组, 其包含通过所提供函数实现的测试的所有元素。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let new_array = arr.filter(function(currentValue, index, arr), thisArg)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arrays.filter(item =&gt; item &gt; 3) // [4, 5, 6, 7, 8, 9]
+</code></pre></div></div>
+
+<h5 id="map-对数组中的每个元素进行处理返回新的数组">map 对数组中的每个元素进行处理，返回新的数组</h5>
+<p>语法同上</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arrays.map(item =&gt; {
+    if(item &gt; 3) {
+        item = 10
+    }else {
+        item = item
+    }
+    return item
+}) // [2, 3, 10, 10, 10, 10, 10, 10]
+</code></pre></div></div>
+
+<h5 id="reduce-为数组提供累加器合并为一个值">reduce 为数组提供累加器，合并为一个值</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+// 参数
+1. total(必须)，初始值, 或者上一次调用回调返回的值
+2. currentValue(必须),数组当前元素的值
+3. index(可选), 当前元素的索引值
+4. arr(可选),数组对象本身
+5 nitialValue(可选): 指定第一次回调 的第一个参数。
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let sum = [0, 1, 2, 3].reduce(function (a, b) {
+  return a + b
+}, 0) // 6
+</code></pre></div></div>
+
+<h5 id="reduceright-从右至左累加">reduceRight 从右至左累加</h5>
+<p>这个方法除了与reduce执行方向相反外，其他完全与其一致.</p>
+<h5 id="find--findindex-根据条件找到数组成员-es6">find() &amp; findIndex() 根据条件找到数组成员 ES6</h5>
+<ul>
+  <li>
+    <p>find()定义：用于找出第一个符合条件的数组成员，并返回该成员，如果没有符合条件的成员，则返回undefined。</p>
+  </li>
+  <li>
+    <p>findIndex()定义：返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。</p>
+  </li>
+</ul>
+
+<p>两个方法都可以识别NaN,弥补了indexOf的不足.</p>
+
+<h5 id="keysvaluesentries-遍历键名遍历键值遍历键名键值">keys()&amp;values()&amp;entries() 遍历键名、遍历键值、遍历键名+键值</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (let index of ['a', 'b'].keys()) {
+  console.log(index);
+}
+// 0
+// 1
+
+for (let elem of ['a', 'b'].values()) {
+  console.log(elem);
+}
+// 'a'
+// 'b'
+
+for (let [index, elem] of ['a', 'b'].entries()) {
+  console.log(index, elem);
+}
+// 0 "a"
+// 1 "b"
+</code></pre></div></div>
+
+<h5 id="参考">参考：</h5>
+
+<p>https://juejin.im/post/5b0903b26fb9a07a9d70c7e0?utm_source=gold_browser_extension#heading-7</p>
+
+<h5 id="总结">总结:</h5>
+<p>很多方法其实在日常的开发中是用过的，只是没有这么系统的来统计出来。</p>
+
+<p>感谢 <code class="highlighter-rouge">OBKoro1</code></p>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/05/28/index/" data-toggle="tooltip" data-placement="top" title="js--原型和原型链">
+                        Previous<br>
+                        <span>js--原型和原型链</span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+
+
+                
+
+                
+
+            </div>  
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <!-- add jianshu add target = "_blank" to <a> by BY -->
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    
+
+
+                    
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; AntoniaHE Blog 2018
+                    <br>
+                    Theme on <a href="https://github.com/AntoniaHE/blog.git">GitHub</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=&repo=.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/ 
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers   
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-90855596-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'b50bf2b12b5338a1845e33832976fd68';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/apple-touch-icon.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

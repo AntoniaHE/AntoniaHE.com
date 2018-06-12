@@ -5,9 +5,824 @@
     <description>Every failure is leading towards success.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 21 May 2018 23:46:38 +0800</pubDate>
-    <lastBuildDate>Mon, 21 May 2018 23:46:38 +0800</lastBuildDate>
+    <pubDate>Wed, 13 Jun 2018 01:56:23 +0800</pubDate>
+    <lastBuildDate>Wed, 13 Jun 2018 01:56:23 +0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>about Array</title>
+        <description>&lt;h3 id=&quot;创建一个数组&quot;&gt;创建一个数组&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let a = new Array() // []
+let a = [1,2,3]
+let a = Array(3) // [,,] 长度为3的数组
+let a = Array(3,4,5) // [3,4,5]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;arrayof-es6&quot;&gt;Array.of() ES6&lt;/h5&gt;
+&lt;p&gt;这个方法返回参数值组成的数组,没有参数，就返回一个空数组&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let a = Array.of(3,4,'sss',22) // [3, 4, &quot;sss&quot;, 22]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Array.of() 出现的目的是为了解决上述构造器因参数个数不同，导致的行为有差异的问题。 在上面的创建栗子中，&lt;code class=&quot;highlighter-rouge&quot;&gt;Array(3)&lt;/code&gt; 是一个长度为3的空数组，而&lt;code class=&quot;highlighter-rouge&quot;&gt;Array(3,4,5)&lt;/code&gt; 返回的是&lt;code class=&quot;highlighter-rouge&quot;&gt;[3,4,5]&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&quot;arraryfrom-es6&quot;&gt;Arrary.from() ES6&lt;/h5&gt;
+&lt;p&gt;用于将两类对象转化为真正的数组，不改变原对象，返回新的数组。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Array.from('hello') // ['h','e','l','l','o']
+let a1 = [...new Set(Array.from('hello'))] // ['h','e','l','o']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;方法&quot;&gt;方法&lt;/h3&gt;
+&lt;h4 id=&quot;改变原数组的9个方法&quot;&gt;改变原数组的9个方法&lt;/h4&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;ES5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+ &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;splice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;shift&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;  &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;unshift&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;ES6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;copyWithin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fill&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h6 id=&quot;splice-添加删除数组元素&quot;&gt;splice() 添加/删除数组元素&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 添加
+array.splice(index,howmany,item1,.....,itemX)
+// index: 必需,规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。
+// howmany: 要删除的个数，0表示不删除，返回原数组
+// item1, ..., itemX： 可选。向数组添加的新项目。
+let a = [1, 2, 3, 4, 5, 6, 7];
+let item = a.splice(0, 3); // [1,2,3]
+console.log(a); // [4,5,6,7]
+// 从数组下标0开始，删除3个元素
+let item = a.splice(-1, 3); // [7]
+// 从最后一个元素开始删除3个元素，因为最后一个元素，所以只删除了7
+
+// 删除
+let item = b.splice(-1,0,'添加1','添加2'); // item []没有删除元素，返回空数组
+console.log(b); // [1,2,3,4,5,6,'添加1','添加2',7]在最后一个元素的前面添加两个元素
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;数组如果元素不够，会删除到最后一个元素为止&lt;/li&gt;
+  &lt;li&gt;操作的元素，包括开始的那个元素&lt;/li&gt;
+  &lt;li&gt;可以添加很多个元素&lt;/li&gt;
+  &lt;li&gt;添加是在开始的元素前面添加的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;sort-排序&quot;&gt;sort() 排序&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;数字类型的数组排序&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 返回升序数组
+let array =  [10, 1, 3, 4,20,4,25,8]
+array.sort(function(a,b){
+    return a - b
+})
+// [1, 3, 4, 4, 8, 10, 20, 25]
+
+// 降序
+array.sort(function(a,b){
+    return b - a
+})
+// [25, 20, 10, 8, 4, 4, 3, 1]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;数组多条件排序
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// array是一个对象数组，按一下方式进行排序
+array.sort(function(a,b){
+  if(a.id === b.id){// 如果id的值相等，按照age的值降序
+       return b.age - a.age
+  }else{ // 如果id的值不相等，按照id的值升序
+      return a.id - b.id
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h5 id=&quot;pop-删除一个数组中的最后的一个元素&quot;&gt;pop() 删除一个数组中的最后的一个元素&lt;/h5&gt;
+    &lt;p&gt;pop() 方法删除一个数组中的最后的一个元素，并且返回这个元素。&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let arr = [1,2,4,5,6,8]
+let item = arr.pop() // item 8
+arr // [1,2,4,5,6]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h5 id=&quot;shift-删除数组的第一个元素&quot;&gt;shift() 删除数组的第一个元素&lt;/h5&gt;
+    &lt;p&gt;shift()方法删除数组的第一个元素，并返回这个元素。&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let arr = [1,2,4,5,6,8]
+let item = arr.shift() // item 1
+arr // [2,4,5,6,8]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h5 id=&quot;push-向数组的末尾添加元素并返回新的长度&quot;&gt;push() 向数组的末尾添加元素，并返回新的长度&lt;/h5&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let list = [2,4,5]
+list.push('2222')
+// list [2,4,5,'2222']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h5 id=&quot;unshift-在数组的开头添加一个或多个元素并返回新的长度&quot;&gt;unshift() 在数组的开头添加一个或多个元素，并返回新的长度&lt;/h5&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let list = [2,3,4,5]
+let len = list.unshift('2222') // 5
+// list ['2222',2,3,4,5]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h5 id=&quot;reverse-颠倒数组中元素的顺序&quot;&gt;reverse() 颠倒数组中元素的顺序.&lt;/h5&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var listA = [2,4,6,9,2,3,7]
+listA.sort((a,b) =&amp;gt;{
+  return a - b
+})
+// listA [2, 2, 3, 4, 6, 7, 9]
+listA.reverse() // [9, 7, 6, 4, 3, 2, 2]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h5 id=&quot;copywithin-指定位置的成员复制到其他位置-es6&quot;&gt;copyWithin() 指定位置的成员复制到其他位置 ES6&lt;/h5&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;array.copyWithin(target, start = 0, end = this.length)
+// target（必需）：从该位置开始替换数据。如果为负值，表示倒数。
+// start（可选）：从该位置开始读取数据，默认为 0。如果为负值，表示倒数。
+// end（可选）：到该位置前停止读取数据，默认等于数组长度。使用负数可从数组结尾处规定位置。
+
+var listA = [2,4,6,9,2,3,7]
+listA.copyWithin(1, -3, -2) // [2,2,6,9,2,3,7]
+// 注意：读了几个元素就从开始被替换的地方替换几个元素
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;fill-填充数组-es6&quot;&gt;fill() 填充数组 ES6&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var l = [2,4,5,8,9,10]
+l.fill(7,3,5) 
+// 要填充的数值是7，从第三个位置开始，到第五个位置前结束
+// [2,3,5,7,7,10]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;不改变原数组的方法8个&quot;&gt;不改变原数组的方法(8个)&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// ES5：
+slice、join、toLocateString、toStrigin、cancat、indexOf、lastIndexOf
+// ES7：
+includes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;slice-浅拷贝数组的元素&quot;&gt;slice() 浅拷贝数组的元素&lt;/h5&gt;
+&lt;p&gt;方法返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象，且原数组不会被修改。&lt;/p&gt;
+
+&lt;p&gt;新数组是浅拷贝的，元素是简单数据类型，改变之后不会互相干扰。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var l = [2,4,5,6,8,2,4]
+var l2 = l.slice(0, 4) // [2,4,5,6]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果是复杂数据类型(对象,数组)的话，改变其中一个，另外一个也会改变。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let a = [{name:'hemei'}]
+let b = a.slice()
+console.log(b,a)
+a[0].name = 'hello'
+b // [{name: 'hello'}]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;join-数组转字符串&quot;&gt;join() 数组转字符串&lt;/h5&gt;
+&lt;p&gt;默认使用逗号作为分隔符&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let a = ['hello','world'];
+let str = a.join(); // 'hello,world'
+let str2 = a.join('+'); // 'hello+world'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;join()/toString()&lt;/code&gt;方法在数组元素是数组的时候，会将里面的数组也调用&lt;code class=&quot;highlighter-rouge&quot;&gt;join()/toString()&lt;/code&gt;,如果是对象的话，对象会被转为&lt;code class=&quot;highlighter-rouge&quot;&gt;[object Object]&lt;/code&gt;字符串。&lt;/p&gt;
+
+&lt;h5 id=&quot;tolocalestring-数组转字符串&quot;&gt;toLocaleString() 数组转字符串&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let a=[{name:'OBKoro1'},23,'abcd',new Date()];
+let str=a.toLocaleString(); // [object Object],23,abcd,2018/5/28 下午1:52:20
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;调用数组的&lt;code class=&quot;highlighter-rouge&quot;&gt;toLocaleString&lt;/code&gt;方法，数组中的每个元素都会调用自身的&lt;code class=&quot;highlighter-rouge&quot;&gt;toLocaleString&lt;/code&gt;方法，对象调用对象的&lt;code class=&quot;highlighter-rouge&quot;&gt;toLocaleString&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;Date&lt;/code&gt;调用&lt;code class=&quot;highlighter-rouge&quot;&gt;Date&lt;/code&gt;的&lt;code class=&quot;highlighter-rouge&quot;&gt;toLocaleString&lt;/code&gt;。&lt;/p&gt;
+&lt;h5 id=&quot;tostring-数组转字符串-不推荐使用&quot;&gt;toString() 数组转字符串 不推荐使用&lt;/h5&gt;
+&lt;p&gt;跟join方法一样，join可以定义分隔符，toString没有。&lt;/p&gt;
+
+&lt;p&gt;当数组和字符串操作的时候，js 会自己调用这个方法将数组自动转换成字符串。&lt;/p&gt;
+
+&lt;h5 id=&quot;cancat--用于将两个或多个数组进行合并操作返回一个新数组&quot;&gt;cancat  用于将两个或多个数组进行合并操作，返回一个新数组。&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var newArr = oldArray.concat(arrayX,arrayX,......,arrayX)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var old1 = [{name: '222',age: 12}]
+var old2 = [{name2: '2xxxx22',age2: 122}]
+var new1 = old1.concat(old2) // [{name: '222',age: 12}, {name2: '2xxxx22',age2: 122}]
+old1[0].name = 'hemei'
+new1 // [{name: 'hemei',age: 12}, {name2: '2xxxx22',age2: 122}]
+// 复杂类型进行合并，属于浅拷贝
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;es6扩展运算符合并数组&quot;&gt;ES6扩展运算符…合并数组&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let a = [2, 3, 4, 5]
+let b = [ 4,...a, 4, 4]
+console.log(b); //  [4,2,3,4,5,4,4]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;indexof-查找数组是否存在某个元素返回下标&quot;&gt;indexOf() 查找数组是否存在某个元素，返回下标.&lt;/h5&gt;
+&lt;p&gt;返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;array.indexOf(searchElement,fromIndex)
+// 被查找的元素, 开始查找的位置(不能大于等于数组的长度，返回-1)，接受负值，默认值为0。
+
+// indexOf()不能识别NaN
+// 数组的indexOf使用严格相等===搜索元素
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var arr = ['hemei','dddd','ssss']
+arr.indexOf('h') // -1
+arr.indexOf('hemei') // 0
+arr.indexOf('dddd') // 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;使用场景&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;数组去重&lt;/li&gt;
+  &lt;li&gt;根据获取的数组下标执行操作，改变数组中的值等。&lt;/li&gt;
+  &lt;li&gt;判断是否存在，执行操作。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;lastindexof-查找指定元素在数组中的最后一个位置&quot;&gt;lastIndexOf() 查找指定元素在数组中的最后一个位置&lt;/h5&gt;
+&lt;p&gt;方法返回指定元素,在数组中的最后一个的索引，如果不存在则返回 -1。（从数组后面往前查找）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;arr.lastIndexOf(searchElement,fromIndex)
+// 被查找的元素. 逆向查找开始位置，默认值数组的长度-1，即查找整个数组。
+// fromIndex: 
+// 正值。如果该值大于或等于数组的长度，则整个数组会被查找
+// 负值。将其视为从数组末尾向前的偏移。(比如-2，从数组最后第二个元素开始往前查找)
+// 负值。其绝对值大于数组长度，则方法返回 -1，即数组不会被查找。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;includes-查找数组是否包含某个元素-返回布尔-es7&quot;&gt;includes() 查找数组是否包含某个元素 返回布尔 ES7&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;array.includes(searchElement,fromIndex=0)
+// searchElement: 被查找的元素,
+// fromIndex(可选):默认值为0，参数表示搜索的起始位置，接受负值。正值超过数组长度，数组不会被搜索，返回false。负值绝对值超过长数组度，重置从0开始搜索。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;includes方法是为了弥补indexOf方法的缺陷而出现的:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;indexOf方法不能识别NaN&lt;/li&gt;
+  &lt;li&gt;indexOf方法检查是否包含某个值不够语义化，需要判断是否不等于-1，表达不够直观&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;遍历方法12个&quot;&gt;遍历方法(12个)&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ES5：
+forEach、every 、some、 filter、map、reduce、reduceRight、
+ES6：
+find、findIndex、keys、values、entries
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;foreach&quot;&gt;forEach&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;array.forEach(function(currentValue, index, arr), thisValue)
+1. currentValue(必须),数组当前元素的值
+2. index(可选), 当前元素的索引值
+3. arr(可选),数组对象本身
+4. thisValue(可选): 当执行回调函数时this绑定对象的值，默认值为undefined
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;关于forEach，无法中途退出循环，只能用return退出本次回调，进行下一次回调。它总是返回 undefined值,即使你return了一个值。&lt;/p&gt;
+
+&lt;h5 id=&quot;every-检测数组所有元素是否都符合判断条件&quot;&gt;every 检测数组所有元素是否都符合判断条件&lt;/h5&gt;
+&lt;p&gt;语法同上&lt;/p&gt;
+
+&lt;p&gt;返回值规则：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;如果数组中检测到有一个元素不满足，则整个表达式返回 false，且剩余的元素不会再进行检测。&lt;/li&gt;
+  &lt;li&gt;如果所有元素都满足条件，则返回 true。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var arrays = [2,3,4,5,6,7,8,9]
+arrays.every(item =&amp;gt; item &amp;gt; 1) // true
+arrays.every(item =&amp;gt; item &amp;gt; 2) // false
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;some-数组中是否有满足判断条件的元素&quot;&gt;some 数组中是否有满足判断条件的元素&lt;/h5&gt;
+&lt;p&gt;语法同上&lt;/p&gt;
+
+&lt;p&gt;返回值规则:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;如果有一个元素满足条件，则表达式返回true, 剩余的元素不会再执行检测.&lt;/li&gt;
+  &lt;li&gt;如果没有满足条件的元素，则返回false。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;arrays.some(item =&amp;gt; item &amp;gt; 2) // true
+arrays.some(item =&amp;gt; item &amp;gt; 10) // false
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;filter-过滤原始数组返回新数组&quot;&gt;filter 过滤原始数组，返回新数组&lt;/h5&gt;
+&lt;p&gt;返回一个新数组, 其包含通过所提供函数实现的测试的所有元素。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let new_array = arr.filter(function(currentValue, index, arr), thisArg)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;arrays.filter(item =&amp;gt; item &amp;gt; 3) // [4, 5, 6, 7, 8, 9]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;map-对数组中的每个元素进行处理返回新的数组&quot;&gt;map 对数组中的每个元素进行处理，返回新的数组&lt;/h5&gt;
+&lt;p&gt;语法同上&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;arrays.map(item =&amp;gt; {
+    if(item &amp;gt; 3) {
+        item = 10
+    }else {
+        item = item
+    }
+    return item
+}) // [2, 3, 10, 10, 10, 10, 10, 10]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;reduce-为数组提供累加器合并为一个值&quot;&gt;reduce 为数组提供累加器，合并为一个值&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+// 参数
+1. total(必须)，初始值, 或者上一次调用回调返回的值
+2. currentValue(必须),数组当前元素的值
+3. index(可选), 当前元素的索引值
+4. arr(可选),数组对象本身
+5 nitialValue(可选): 指定第一次回调 的第一个参数。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let sum = [0, 1, 2, 3].reduce(function (a, b) {
+  return a + b
+}, 0) // 6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;reduceright-从右至左累加&quot;&gt;reduceRight 从右至左累加&lt;/h5&gt;
+&lt;p&gt;这个方法除了与reduce执行方向相反外，其他完全与其一致.&lt;/p&gt;
+&lt;h5 id=&quot;find--findindex-根据条件找到数组成员-es6&quot;&gt;find() &amp;amp; findIndex() 根据条件找到数组成员 ES6&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;find()定义：用于找出第一个符合条件的数组成员，并返回该成员，如果没有符合条件的成员，则返回undefined。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;findIndex()定义：返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;两个方法都可以识别NaN,弥补了indexOf的不足.&lt;/p&gt;
+
+&lt;h5 id=&quot;keysvaluesentries-遍历键名遍历键值遍历键名键值&quot;&gt;keys()&amp;amp;values()&amp;amp;entries() 遍历键名、遍历键值、遍历键名+键值&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for (let index of ['a', 'b'].keys()) {
+  console.log(index);
+}
+// 0
+// 1
+
+for (let elem of ['a', 'b'].values()) {
+  console.log(elem);
+}
+// 'a'
+// 'b'
+
+for (let [index, elem] of ['a', 'b'].entries()) {
+  console.log(index, elem);
+}
+// 0 &quot;a&quot;
+// 1 &quot;b&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;参考&quot;&gt;参考：&lt;/h5&gt;
+
+&lt;p&gt;https://juejin.im/post/5b0903b26fb9a07a9d70c7e0?utm_source=gold_browser_extension#heading-7&lt;/p&gt;
+
+&lt;h5 id=&quot;总结&quot;&gt;总结:&lt;/h5&gt;
+&lt;p&gt;很多方法其实在日常的开发中是用过的，只是没有这么系统的来统计出来。&lt;/p&gt;
+
+&lt;p&gt;感谢 &lt;code class=&quot;highlighter-rouge&quot;&gt;OBKoro1&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 13 Jun 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/06/13/index/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/13/index/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>js--原型和原型链</title>
+        <description>&lt;h5 id=&quot;什么是原型&quot;&gt;什么是原型&lt;/h5&gt;
+&lt;h6 id=&quot;prototype&quot;&gt;prototype&lt;/h6&gt;
+&lt;p&gt;每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型”继承”属性。
+函数的 prototype 属性指向了一个对象，这个对象正是调用该构造函数而创建的实例的原型.&lt;/p&gt;
+&lt;h6 id=&quot;__proto__&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__proto__&lt;/code&gt;&lt;/h6&gt;
+&lt;p&gt;这是每一个JavaScript对象(除了 null )都具有的一个属性，叫__proto__，这个属性会指向该对象的原型.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;!--使用构造函数创建一个对象--&amp;gt;
+function People() {}
+const people = new People()
+console.log(people.__proto__ === People.prototype) 
+// true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;实例的__proto__属性指向构造函数的原型&lt;/p&gt;
+&lt;h6 id=&quot;constructor&quot;&gt;constructor&lt;/h6&gt;
+&lt;p&gt;原型的constructor属性指向构造函数、&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;People === People.prototype.constructor 
+// true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;实例与原型&quot;&gt;实例与原型&lt;/h5&gt;
+&lt;p&gt;当读取实例的属性时，如果找不到，就会查找与对象关联的原型中的属性，如果还查不到，就去找原型的原型，一直找到最顶层为止。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;People.prototype.name = 'hemei'
+people.name = 'ahhhh'
+console.log(people.name)
+
+delete people.name
+console.log(people.name)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;原型的原型&quot;&gt;原型的原型&lt;/h5&gt;
+&lt;p&gt;原型对象就是通过 Object 构造函数生成的&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Peopel.prototype.__proto__ -&amp;gt; Object.prototype
+Object.prototype.constractor -&amp;gt; Object()
+Object.protptype.__proto__ === null // true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h6 id=&quot;instanceof-表示的就是一种继承关系或者原型链的结构&quot;&gt;instanceof 表示的就是一种继承关系，或者原型链的结构。&lt;/h6&gt;
+&lt;h6 id=&quot;关系图&quot;&gt;关系图：&lt;/h6&gt;
+&lt;p&gt;&lt;img src=&quot;../../../../img/article-images/proto.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;原型链关系图。
+&lt;img src=&quot;../../../../img/article-images/prototype.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h6 id=&quot;文章参考&quot;&gt;文章参考：&lt;/h6&gt;
+&lt;p&gt;https://github.com/mqyqingfeng/Blog/issues/2&lt;/p&gt;
+
+&lt;p&gt;https://www.cnblogs.com/wangfupeng1988/p/3977924.html&lt;/p&gt;
+</description>
+        <pubDate>Mon, 28 May 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/05/28/index/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/05/28/index/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>webpack 4.0 进阶</title>
+        <description>&lt;h5 id=&quot;安装一波&quot;&gt;安装一波&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; npm install -g webpack // 全局安装webpack
+ npm init // 初始化项目
+ npm install --save-dev webpack //–save是要保存到package.json中，dev是在开发时使用这个包，而生产环境中不使用。
+ 注意：当使用webpack -v 出现需要安装webpack-cli 的情况时，需要全局安装 webpack-cli
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;来操作一波&quot;&gt;来，操作一波&lt;/h5&gt;
+&lt;p&gt;在项目文件夹的根目录建立两个文件夹，分别是src文件夹和dist文件夹：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;src文件夹：用来存放我们编写的javascript代码，可以简单的理解为用JavaScript编写的模块。&lt;/li&gt;
+  &lt;li&gt;dist文件夹：用来存放供浏览器读取的文件，这个是webpack打包成的文件。&lt;/li&gt;
+  &lt;li&gt;简单理解就是：src是源码文件，dist是我们编译打包好的文件；一个用于开发环境，一个用于生产环境。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;纪念第一次webpack打包&quot;&gt;纪念第一次Webpack打包&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; webpack {entry file} {destination for bundled file}
+// {entery file}:入口文件的路径，本文中就是src/entery.js的路径；
+// {destination for bundled file}:填写打包后存放的路径。
+例如：
+    webpack src/entry.js dist/bundle.js
+    将src里面entry.js 文件打包到dist里面的bundle.js里面
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;配置文件入口和出口&quot;&gt;配置文件：入口和出口&lt;/h5&gt;
+&lt;h6 id=&quot;配置文件webpackconfigjs&quot;&gt;配置文件webpack.config.js&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports={
+    //入口文件的配置项
+    entry:{},
+    //出口文件的配置项
+    output:{},
+    //模块：例如解读CSS,图片如何转换，压缩
+    module:{},
+    //插件，用于生产模版和各项功能
+    plugins:[],
+    //配置webpack开发服务功能
+    devServer:{}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;配置文件-服务和热更新&quot;&gt;配置文件： 服务和热更新&lt;/h5&gt;
+&lt;h6 id=&quot;设置webpack-dev-server&quot;&gt;设置webpack-dev-server&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;安装：npm install webpack-dev-server –save-dev
+在webpack.config.js里面配置：
+devServer: {
+    //设置基本目录结构，用于找到程序打包地址。
+    contentBase:path.resolve(__dirname,'dist'),
+    //服务器的IP地址，可以使用IP也可以使用localhost
+    host:'localhost',
+    //服务端压缩是否开启
+    compress:true,
+    //配置服务端口号
+    port: 1818
+}
+在package.json 配置：
+&quot;script&quot;: {
+    &quot;dev&quot;: &quot;webpack-dev-server&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;模块打包css&quot;&gt;模块打包：css&lt;/h5&gt;
+&lt;h6 id=&quot;关于loaders&quot;&gt;关于Loaders。&lt;/h6&gt;
+&lt;p&gt;它是webpack的重要功能，可以对不同的文件格式进行特定处理。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;例如：
+可以把SASS文件的写法转换成CSS，而不在使用其他转换工具。
+可以把ES6或者ES7的代码，转换成大多浏览器兼容的JS代码。
+可以把React中的JSX转换成JavaScript代码。
+
+注意：所有的Loaders都需要在npm中单独进行安装，并在webpack.config.js里进行配置。
+在 webpack 配置中定义 loader 时，要定义在 module.rules 中，而不是 rules。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;loaders配置属性&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;test：用于匹配处理文件的扩展名的表达式，这个选项是必须进行配置的；
+use：loader名称，就是你要使用模块的名称；
+include/exclude:手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）；
+query：为loaders提供额外的设置选项（可选）。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h6 id=&quot;打包css文件&quot;&gt;打包CSS文件&lt;/h6&gt;
+&lt;p&gt;新建css文件并引入到index.js中。
+使用loader来解析css文件，涉及到2个loader：&lt;code class=&quot;highlighter-rouge&quot;&gt;style-loader，css-loader&lt;/code&gt;；
+安装对应的模块：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install style-loader --save-dev
+npm install css-loader --save-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;在webpack.config.js里面配置&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;modules: {
+    rules: [
+        {
+           test: /\.css$/,
+           // 这里的use，也可以使用loader，都是表示使用的模块
+           use: ['style-loader', 'css-loader']
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;插件配置配置js压缩&quot;&gt;插件配置：配置JS压缩&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 在webpack.config.js中引入uglifyjs-webpack-glugin插件
+const uglify = require('uglifyjs-webpack-plugin')
+// plugins配置里new一个 uglify对象
+plugins:[
+    new uglify()
+],
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;插件配置html文件的发布如何把html文件打包到我们的生产路径下&quot;&gt;插件配置：HTML文件的发布–如何把html文件打包到我们的生产路径下。&lt;/h5&gt;
+&lt;h6 id=&quot;打包html文件&quot;&gt;打包HTML文件&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 配置webpack.config.js文件，先引入我们的html-webpack-plugin插件。
+const htmlPlugin = require('html-webpack-plugin')
+// 安装模块
+npm install --save-dev html-webpack-plugin
+// 进行插件配置，放在plugin里面
+new htmlPlugin({
+    minify:{
+        removeAttributeQuotes:true
+    },
+    hash:true,
+    template:'./src/index.html'
+})
+minify：是对html文件进行压缩，removeAttrubuteQuotes是去掉属性的双引号。
+hash：为了开发中js有缓存效果，所以加入hash，这样可以有效避免缓存JS。
+template：是要打包的html模版路径和文件名称。
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;图片css中的图片处理&quot;&gt;图片：CSS中的图片处理&lt;/h5&gt;
+&lt;p&gt;我们直接使用图片，webpack打包是会报错的，因为我们没有做图片相关的打包配置，缺少loader的解析。这里涉及到2个用于图片解析的loader，url-loader,file-loader&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 安装
+npm install --save-dev file-loader url-loader
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;file-loader&lt;/code&gt;：解决引用路径的问题，拿background样式用url引入背景图来说，我们都知道，webpack最终会将各个模块打包成一个文件，因此我们样式中的url路径是相对入口html页面的，而不是相对于原始css文件所在的路径的。这就会导致图片引入失败。这个问题是用file-loader解决的，file-loader可以解析项目中的url引入（不仅限于css），根据我们的配置，将图片拷贝到相应的路径，再根据我们的配置，修改打包后文件引用路径，使之指向正确的文件。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;url-loader&lt;/code&gt;：如果图片较多，会发很多http请求，会降低页面性能。这个问题可以通过url-loader解决。url-loader会将引入的图片编码，生成dataURl。相当于把图片数据翻译成一串字符。再把这串字符打包到文件中，最终只需要引入这个文件就能访问图片了。当然，如果图片较大，编码会消耗性能。因此url-loader提供了一个limit参数，小于limit字节的文件会被转为DataURl，大于limit的还会使用file-loader进行copy。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 配置
+rules: [{
+    test: '/\.(png|gif|jpg)/',
+    use: [{
+            loader: 'url-loader',
+            options: {
+                limit: 500000
+            }
+        }
+    ]
+}]
+// test:/\.(png|jpg|gif)/是匹配图片文件后缀名称。
+// use：是指定使用的loader和loader的配置参数。
+// limit：是把小于500000B的文件打成Base64的格式，写入JS。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;以上我们只是用了url-loader,是因为&lt;code class=&quot;highlighter-rouge&quot;&gt;url-loader&lt;/code&gt;封装了&lt;code class=&quot;highlighter-rouge&quot;&gt;file-loader&lt;/code&gt;。
+url-loader工作分两种情况：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;文件大小小于limit参数，url-loader将会把文件转为DataURL（Base64格式）；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;文件大小大于limit，url-loader会调用file-loader进行处理，参数也会直接传给file-loader。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;css--图片css分离与图片路径处理&quot;&gt;css &amp;amp; 图片：CSS分离与图片路径处理&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install --save-dev extract-text-webpack-plugin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;图片处理html中的图片&quot;&gt;图片：处理HTML中的图片&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install html-withimg-loader --save
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;css进阶less文件的打包和分离&quot;&gt;CSS进阶：Less文件的打包和分离&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;安装：
+npm install --save-dev less less-loader
+{
+  test: /\.less$/,
+  use: ['style-loader', 'css-loader', 'less-loader']
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;css进阶sass文件的打包和分离&quot;&gt;CSS进阶：SASS文件的打包和分离&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;安装：
+npm install --save-dev node-sass sass-loader
+{
+  test: /\.scss$/,
+  use: ['style-loader','css-loader', 'sass-loader']
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;css进阶自动处理css3属性前缀&quot;&gt;CSS进阶：自动处理CSS3属性前缀&lt;/h5&gt;
+&lt;h6 id=&quot;安装-postcss-loader-和autoprefixer&quot;&gt;安装 postcss-loader 和autoprefixer&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 新建 postcss.config.js 文件,设置
+module.exports = {
+    plugins: [
+        require('autoprefixer')
+    ]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h6 id=&quot;loader-配置&quot;&gt;loader 配置&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    test: /\.css$/,
+    use: [
+        {
+          loader: &quot;style-loader&quot;
+        }, {
+          loader: &quot;css-loader&quot;
+        }, {
+          loader: &quot;postcss-loader&quot;
+        }
+    ]
+}
+// 提取css
+{
+    test: /\.css$/,
+    use: extractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'postcss-loader'
+        ]
+    })
+    
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;css进阶消除未使用的css&quot;&gt;CSS进阶：消除未使用的CSS&lt;/h5&gt;
+&lt;h6 id=&quot;purifycss&quot;&gt;PurifyCSS&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 安装  -D代表的是–save-dev
+npm i -D purifycss-webpack purify-css
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h6 id=&quot;glob&quot;&gt;glob&lt;/h6&gt;
+&lt;p&gt;需要同步检查html模板，所以我们需要引入node的glob对象使用。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;constc  glob = require('glob')
+const PurifyCSSPlugin = require(&quot;purifycss-webpack&quot;)
+&amp;lt;!--设置plugin， 插件必须配合extract-text-webpack-plugin这个插件--&amp;gt;
+plugins:[
+    new PurifyCSSPlugin({
+        paths: glob.sync(path.join(__dirname, 'src/*.html')),
+    })
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;给webpack增加babel支持&quot;&gt;给webpack增加babel支持&lt;/h5&gt;
+&lt;h6 id=&quot;babel&quot;&gt;babel&lt;/h6&gt;
+&lt;h6 id=&quot;babel其实是一个编译javascript的平台它可以做的事&quot;&gt;Babel其实是一个编译JavaScript的平台，它可以做的事：&lt;/h6&gt;
+&lt;ul&gt;
+  &lt;li&gt;使用下一代的javaScript代码(ES6,ES7….)，即使这些标准目前并未被当前的浏览器完全支持。&lt;/li&gt;
+  &lt;li&gt;使用基于JavaScript进行了扩展的语言，比如React的JSX。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;!--安装--&amp;gt;
+&amp;lt;!--解析ES6的babel-preset-es2015包和解析JSX的babel-preset-react包--&amp;gt;
+npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react
+
+{
+    test:/\.(jsx|js)$/,
+    use:{
+        loader:'babel-loader',
+        options:{
+            presets:[
+                &quot;es2015&quot;,&quot;react&quot;
+            ]
+        }
+    },
+    exclude:/node_modules/
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h6 id=&quot;babelrc配置&quot;&gt;.babelrc配置&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;presets&quot;:[&quot;react&quot;,&quot;es2015&quot;]
+}
+&amp;lt;!--webpack.config.js配置--&amp;gt;
+{
+    test:/\.(jsx|js)$/,
+    use:{
+        loader:'babel-loader',
+    },
+    exclude:/node_modules/
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h6 id=&quot;env&quot;&gt;ENV&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;!--官方推荐使用的是babel-preset-env--&amp;gt;
+npm install --save-dev babel-preset-env
+
+{
+    &quot;presets&quot;:[&quot;react&quot;,&quot;env&quot;]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;打包第三方库&quot;&gt;打包第三方库&lt;/h5&gt;
+&lt;p&gt;jquery为栗子
+第一种方式：只使用到webpack打包&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install --save jquery
+&amp;lt;!--引入--&amp;gt;
+import $ from 'jquery'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;第二种方式：全局引入&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;!--在webpac.config.js文件引入webpack，plugin里面配置jQuery--&amp;gt;
+const webpack = require('webpack')
+&amp;lt;!-- plugin--&amp;gt;
+plugin:[
+    new webpack.ProvidePlugin({
+        $: 'jquery'
+    })
+
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;实战技巧watch的正确使用方法&quot;&gt;实战技巧：watch的正确使用方法&lt;/h5&gt;
+&lt;p&gt;使用 webpack –watch&lt;/p&gt;
+&lt;h6 id=&quot;bannerplugin插件js中加上我们的版权或开发者声明&quot;&gt;BannerPlugin插件:JS中加上我们的版权或开发者声明&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;new webpack.BannerPlugin('hemei 版权所有')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;优化黑技能&quot;&gt;优化黑技能&lt;/h5&gt;
+&lt;p&gt;在jquery的引入中，我们使用了2中方式&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;import引入方法：引用后不管你在代码中使用不适用该类库，都会把该类库打包起来，这样有时就会让代码产生冗余。&lt;/li&gt;
+  &lt;li&gt;ProvidePlugin引入方法：引用后只有在类库使用时，才按需进行打包，所以建议在工作使用插件的方式进行引入。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&quot;抽离jquery&quot;&gt;抽离JQuery&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;!--修改入口文件--&amp;gt;
+ entry:{
+    entry:'./src/entry.js',
+    jquery:'jquery'
+ }
+ &amp;lt;!--设置以下属性--&amp;gt;
+ optimization: {
+    splitChunks: {
+      &amp;lt;!--name对应入口文件中的名字，我们起的是jQuery--&amp;gt;
+      name:'jquery',
+      &amp;lt;!--最小打包的文件模块数，这里直接写2就好--&amp;gt;
+      minChunks: 2
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;执行npm run dev  jquery和entry已经分离。&lt;/p&gt;
+
+&lt;h5 id=&quot;实战技巧静态资源集中输出&quot;&gt;实战技巧：静态资源集中输出&lt;/h5&gt;
+
+&lt;h6 id=&quot;使用copy-webpack-plugin&quot;&gt;使用copy-webpack-plugin&lt;/h6&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install --save-dev copy-webpack-plugin
+&amp;lt;!--webpack.config.js--&amp;gt;
+const copyWebpackPlugin= require('copy-webpack-plugin')
+&amp;lt;!--plugin--&amp;gt;
+new copyWebpackPlugin([{
+    from:__dirname+'/src/public',
+    to:'./public'
+}])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;from:要打包的静态资源目录地址，这里的__dirname是指项目目录下，是node的一种语法，可以直接定位到本机的项目目录中。&lt;/li&gt;
+  &lt;li&gt;to:要打包到的文件夹路径，跟随output配置中的目录。所以不需要再自己加__dirname。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;实战技巧json配置文件使用&quot;&gt;实战技巧：Json配置文件使用&lt;/h5&gt;
+&lt;p&gt;普通文件引入&lt;/p&gt;
+&lt;h5 id=&quot;热更新&quot;&gt;热更新&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;new webpack.HotModuleReplacementPlugin()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;边看这篇文章边操作，现在自己会搭一个框架了。中间遇到了很多问题，也参考了网上的大神的经验文档。&lt;/p&gt;
+&lt;h5 id=&quot;遇见的坑&quot;&gt;遇见的坑：&lt;/h5&gt;
+&lt;p&gt;常见的： https://blog.csdn.net/sinat_17775997/article/details/61924901&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;webpack打包，css样式名变成了带hash的值。
+因为设置了modules：true 。取消就不会有了。&lt;/li&gt;
+  &lt;li&gt;当出现 The following asset(s) exceed the recommended size limit (244 KiB)文件大小限制的warning时，一般开发环境的文件都比较大。
+在webpack里面配置
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;performanc: {
+  hints:  dev ? false : 'warning'
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h5 id=&quot;感谢大神技术胖&quot;&gt;感谢大神技术胖&lt;/h5&gt;
+    &lt;h5 id=&quot;原文httpjspangcom20170916webpack3-2&quot;&gt;原文：http://jspang.com/2017/09/16/webpack3-2/&lt;/h5&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 27 May 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/05/27/index/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/05/27/index/</guid>
+        
+        
+      </item>
     
       <item>
         <title>关于ES6</title>
