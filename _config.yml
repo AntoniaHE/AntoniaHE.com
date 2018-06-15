@@ -71,4 +71,11 @@ service-worker: true
 
 # Friends
 friends: [
+  {
+    'href': 'https://kopitetorres.github.io/',
+    'title': 'Welkin Chan'
+  }, {
+    'href': 'http://hysunny.me/archives/',
+    'title': 'hysunny'
+  }
 ]
